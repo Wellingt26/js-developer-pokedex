@@ -1,21 +1,17 @@
-loadPokemon("bulbasaur");
-
 const contentPokemon = document.getElementById("contentPokemon");
 
 function convertPokemonToContent(pokemon) {
   return `<section class="content ${pokemon.type}">
-  <span></span>
   <div id="info" class="descricao-top">
     <h1>${pokemon.name}</h1>
     <span class="number">#${pokemon.number}</span>
     <span class="type ${pokemon.types[0]}">${pokemon.type}</span>
     <span class="type ${pokemon.types[1]}">${pokemon.types[1]}</span>
   </div>
-
+  
   <div class="imagem">
-    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/1.svg" alt="">
+    <img src="${pokemon.photoDesc}" alt="${pokemon.name}">
   </div>
-
   <div class="descricao-bottom">
     <div class="about">
       <span>About:</span>
@@ -39,12 +35,14 @@ function convertPokemonToContent(pokemon) {
       </ul>
     </div>
   </div>
-</section><h1>${pokemon.name}</h1>
+</section>
   `;
 }
 
-function loadPokemon(PokemonName) {
-  pokeApi.getPokemon(PokemonName).then((pokemon) => {
+loadPokemon(localStorage.getItem("name"));
+
+function loadPokemon(pokemonName) {
+  pokeApi.getPokemon(pokemonName).then((pokemon) => {
     const newHtml = convertPokemonToContent(pokemon);
     contentPokemon.innerHTML += newHtml;
   });

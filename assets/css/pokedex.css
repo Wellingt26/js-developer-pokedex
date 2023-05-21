@@ -1,3 +1,7 @@
+a {
+  text-decoration: none;
+}
+
 .pokemons {
   display: grid;
   grid-template-columns: 1fr;
@@ -144,22 +148,4 @@
   background-color: #6c79db;
   border: none;
   border-radius: 1rem;
-}
-
-@media screen and (min-width: 380px) {
-  .pokemons {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-@media screen and (min-width: 576px) {
-  .pokemons {
-    grid-template-columns: 1fr 1fr 1fr;
-  }
-}
-
-@media screen and (min-width: 992px) {
-  .pokemons {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-  }
 }
