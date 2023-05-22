@@ -2,11 +2,13 @@ const contentPokemon = document.getElementById("contentPokemon");
 
 function convertPokemonToContent(pokemon) {
   return `<section class="content ${pokemon.type}">
+  <a class = "seta" href="./index.html"> ⬅ </a>
   <div id="info" class="descricao-top">
     <h1>${pokemon.name}</h1>
     <span class="number">#${pokemon.number}</span>
-    <span class="type ${pokemon.types[0]}">${pokemon.type}</span>
-    <span class="type ${pokemon.types[1]}">${pokemon.types[1]}</span>
+    ${pokemon.types
+      .map((type) => `<span class="type ${type}">${type}</span>`)
+      .join(" ")} 
   </div>
   
   <div class="imagem">
@@ -20,8 +22,8 @@ function convertPokemonToContent(pokemon) {
     <div class="descricao-left">
       <ul>
         <li><span>Height</span></li>
-        <li><span>Abilities 1:</span></li>
-        <li><span>Abilities 2:</span></li>
+        <li><span>Ability:</span></li>
+        <li><span>Ability:</span></li>
         <li><span>Weight</span></li>
 
       </ul>
